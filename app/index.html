@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platinum Road — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap, missables, and a cited guide for every trophy.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23d24e2a'/%3E%3Cpolygon points='8,3 13,8 8,13 3,8' fill='%23ffffff'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="topbar" id="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">◆</span>
+    <div>
+      <h1>Platinum Road</h1>
+      <p class="tagline">GTA VI trophy guide &amp; tracker — 55 PS5 trophies, spoiler-safe, offline, in our own words</p>
+    </div>
+  </div>
+  <div class="progress-block" id="progress-block" aria-live="polite">
+    <div class="progress-numbers"><strong id="earned-count">0</strong><span> / 55 earned</span></div>
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+    <div class="progress-sub" id="progress-sub">0% to the platinum</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" type="button" title="Switch theme (paper / night)">Night theme</button>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Guide sections">
+  <button type="button" data-view="tracker" class="tab active" aria-current="page">Tracker</button>
+  <button type="button" data-view="roadmap" class="tab">Roadmap</button>
+  <button type="button" data-view="missables" class="tab">Missables</button>
+  <button type="button" data-view="planner" class="tab">Next up</button>
+  <button type="button" data-view="settings" class="tab">Settings</button>
+</nav>
+
+<main id="main">
+  <section id="view-tracker" class="view active" aria-label="Trophy tracker">
+    <div class="tracker-grid">
+      <div class="list-col">
+        <div class="toolbar" id="toolbar">
+          <input id="search" type="search" placeholder="Search trophies by name or description…" aria-label="Search trophies" autocomplete="off">
+          <div class="chips" id="kind-chips" role="group" aria-label="Filter by kind">
+            <button type="button" class="chip active" data-kind="all">All 55</button>
+            <button type="button" class="chip" data-kind="story">Story</button>
+            <button type="button" class="chip" data-kind="missable">Missable</button>
+            <button type="button" class="chip" data-kind="collectible">Collectibles</button>
+            <button type="button" class="chip" data-kind="activity">Activities</button>
+          </div>
+          <div class="toolbar-row">
+            <label class="select-label">Grade
+              <select id="grade-filter" aria-label="Filter by grade">
+                <option value="all">All grades</option>
+                <option value="platinum">Platinum</option>
+                <option value="gold">Gold</option>
+                <option value="silver">Silver</option>
+                <option value="bronze">Bronze</option>
+              </select>
+            </label>
+            <label class="check-label"><input type="checkbox" id="hide-earned"> Hide earned</label>
+            <label class="check-label"><input type="checkbox" id="spoiler-toggle" checked> Spoiler-safe (hide story names until earned)</label>
+            <span class="result-count" id="result-count"></span>
+          </div>
+        </div>
+        <ul class="checklist" id="checklist" aria-label="Trophy checklist"></ul>
+      </div>
+      <aside class="detail" id="detail" aria-label="Trophy guide" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">Built from the official descriptions: six stages, in the order to play them. Story first, then the side strands, then activities and collectibles, then the money clean-up, then the platinum itself.</p>
+    <div id="roadmap-stages"></div>
+  </section>
+
+  <section id="view-missables" class="view" aria-label="Missable trophies">
+    <h2>Missable trophies — do these before they pass you by</h2>
+    <p class="lede">These 12 trophies are flagged from their official descriptions as one-shot moments: a choice, a single attempt, or a scene you can walk past. The flag is our reading of the description — the game is a day old and no guide has checked every one in the game yet, so treat each flag as a warning, not a verdict.</p>
+    <div id="missable-list"></div>
+  </section>
+
+  <section id="view-planner" class="view" aria-label="Next up planner">
+    <h2>Next up — your planner</h2>
+    <p class="lede">The next unearned trophies in roadmap order, with the reason each one is next. Tick one off in the tracker and the planner moves on. Add a note to any trophy to plan your route — notes save in your browser.</p>
+    <div id="planner-list"></div>
+  </section>
+
+  <section id="view-settings" class="view" aria-label="Settings and data">
+    <h2>Settings &amp; your data</h2>
+    <p class="lede">Progress, notes and settings live only in this browser (localStorage). Nothing leaves your machine and nothing is fetched at run time — this guide works with the network off.</p>
+    <div class="settings-grid" id="settings-grid"></div>
+    <h3>Sources</h3>
+    <p class="sources-note">Trophy names, descriptions and grades: the official PlayStation 5 list as published by Exophase (exophase.com/game/grand-theft-auto-vi-psn/trophies) and PSNProfiles (psnprofiles.com/trophies/43531-grand-theft-auto-vi), the two agreeing on every name, description and grade. Counts (42 Shooting Range challenges, 250 stunts, 100 WAiNK locations, and the rest) are the counts PlayStation tracks, as PSNProfiles lists them. Every guide is written in our own words from the official description; where a place or step is not pinned down by the description, the guide says so — it has not yet been checked in the game. No Rockstar logo or official artwork is used anywhere in this guide.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Platinum Road — an unofficial fan guide. Grand Theft Auto and GTA are trademarks of their owners; this guide is not affiliated with or endorsed by Rockstar Games or PlayStation. Data: the official 55-trophy list (Exophase / PSNProfiles, 2026-11-18). Works offline.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
